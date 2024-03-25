@@ -53,6 +53,11 @@ set_target_properties(Vector2D_lib PROPERTIES CXX_CLANG_TIDY
                                               "${CLANG_TIDY_COMMAND}")
 target_link_libraries(Vector2D_lib life_logistics_compiler_flags)
 
+if(MSVC)
+    set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS FALSE)
+    set(BUILD_SHARED_LIBS FALSE)
+endif()
+
 add_executable(LifeLogistics src/main.cpp src/map.cpp src/systems.cpp)
 set_target_properties(LifeLogistics PROPERTIES CXX_CLANG_TIDY
                                                "${CLANG_TIDY_COMMAND}")
