@@ -32,22 +32,22 @@ TEST_CASE("QueryHelperFunctions", "QueriesTests")
 
     // assert
     REQUIRE_NOTHROW(camera_update_query.each(
-        [](flecs::entity entity,
+        [](flecs::entity /* entity */,
            const Player & /* _player_tag */,
-           CameraResource &camera,
-           const Map &map) { std::cout << "Test\n"; }));
+           CameraResource & /* camera */,
+           const Map & /* map */) { std::cout << "Test\n"; }));
     REQUIRE_NOTHROW(draw_player_query.each(
         [](const Player & /* _player_tag */,
-           const RectangleComponent &rectangle,
-           const Position &position,
-           const CameraResource &camera) { std::cout << "Test\n"; }));
+           const RectangleComponent & /* rectangle */,
+           const Position & /* position */,
+           const CameraResource & /* camera */) { std::cout << "Test\n"; }));
     REQUIRE_NOTHROW(draw_tiles_query.each(
         [](const MapTile & /* _map_tile_tag */,
-           const RectangleComponent &rectangle,
-           const Position &position,
-           const CameraResource &camera) { std::cout << "Test\n"; }));
+           const RectangleComponent & /* rectangle */,
+           const Position & /* position */,
+           const CameraResource & /* camera */) { std::cout << "Test\n"; }));
     REQUIRE_NOTHROW(handle_player_input_query.each(
-        [](const Player & /* _player_tag */, Velocity &velocity) {
+        [](const Player & /* _player_tag */, Velocity & /* velocity */) {
             std::cout << "Test\n";
         }));
     REQUIRE_NOTHROW(
