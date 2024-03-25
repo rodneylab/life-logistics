@@ -29,21 +29,18 @@ jobs:
           cd Debug
           .\ComponentsTests
       - name: run queries unit tests
-        working-directory: ./build/bin
         run: |
           cd build
           cd bin
           cd Debug
           .\QueriesTests
       - name: run systems unit tests
-        working-directory: ./build/bin
         run: |
           cd build
           cd bin
           cd Debug
           .\SystemsTests
       - name: run systems vector2d tests
-        working-directory: ./build/bin
         run: |
           cd build
           cd bin
