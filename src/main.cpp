@@ -1,6 +1,6 @@
 #include "constants.h"
 #include "map.h"
-#include "queries.h"
+#include "queries.h" // NOLINT [misc-include-cleaner]
 #include "resources.h"
 #include "systems.h"
 

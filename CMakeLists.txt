@@ -26,6 +26,11 @@ target_compile_options(
         "$<${gcc_like_cxx}:$<BUILD_INTERFACE:-pedantic-errors;-Werror;-Wall;-Weffc++;-Wextra;-Wconversion;-Wsign-conversion>>"
         "$<${msvc_cxx}:$<BUILD_INTERFACE:-W4>>")
 
+if(MSVC)
+    set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS TRUE)
+    set(BUILD_SHARED_LIBS TRUE)
+endif()
+
 if(NOT DEFINED EMSCRIPTEN)
     include(cmake/StaticAnalysers.cmake)
     enable_clang_tidy()
@@ -39,12 +44,15 @@ endif()
 include(Dependencies.cmake)
 life_logistics_setup_dependencies()
 
-add_executable(
-    LifeLogistics
-    src/main.cpp
-    src/map.cpp
-    src/systems.cpp
-    src/templates.cpp)
+include(GenerateExportHeader)
+
+add_library(Vector2D_lib STATIC "${PROJECT_SOURCE_DIR}/src/vector2d.cpp"
+                                "${PROJECT_SOURCE_DIR}/src/templates.cpp")
+set_target_properties(Vector2D_lib PROPERTIES CXX_CLANG_TIDY
+                                              "${CLANG_TIDY_COMMAND}")
+target_link_libraries(Vector2D_lib life_logistics_compiler_flags)
+
+add_executable(LifeLogistics src/main.cpp src/map.cpp src/systems.cpp)
 set_target_properties(LifeLogistics PROPERTIES CXX_CLANG_TIDY
                                                "${CLANG_TIDY_COMMAND}")
 target_link_libraries(
@@ -54,10 +62,9 @@ target_link_libraries(
             fmt
             raylib
             spdlog::spdlog_header_only
+            Vector2D_lib
             life_logistics_compiler_flags)
-
 target_include_directories(LifeLogistics PUBLIC "${PROJECT_BINARY_DIR}")
-
 target_compile_definitions(
     LifeLogistics PUBLIC ASSETS_PATH="${CMAKE_CURRENT_SOURCE_DIR}/assets/")
 
