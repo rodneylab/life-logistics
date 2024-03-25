@@ -26,10 +26,6 @@ target_compile_options(
         "$<${gcc_like_cxx}:$<BUILD_INTERFACE:-pedantic-errors;-Werror;-Wall;-Weffc++;-Wextra;-Wconversion;-Wsign-conversion>>"
         "$<${msvc_cxx}:$<BUILD_INTERFACE:-W4>>")
 
-if(MSVC)
-    set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS TRUE)
-    set(BUILD_SHARED_LIBS TRUE)
-endif()
 
 if(NOT DEFINED EMSCRIPTEN)
     include(cmake/StaticAnalysers.cmake)
@@ -45,6 +41,11 @@ include(Dependencies.cmake)
 life_logistics_setup_dependencies()
 
 include(GenerateExportHeader)
+
+if(MSVC)
+    set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS TRUE)
+    set(BUILD_SHARED_LIBS TRUE)
+endif()
 
 add_library(Vector2D_lib STATIC "${PROJECT_SOURCE_DIR}/src/vector2d.cpp"
                                 "${PROJECT_SOURCE_DIR}/src/templates.cpp")
