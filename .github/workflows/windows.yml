@@ -21,10 +21,28 @@ jobs:
           cmake -H"." -Bbuild -T host=x86 -A x64 -DCMAKE_BUILD_TYPE="Debug"
       - name: building
         run: |
-          cmake --build build --config Debug --target Catch_tests_run -j4
-      - name: run unit tests
+          cmake --build build --config Debug --target ComponentsTests QueriesTests SystemsTests Vector2DTests
+      - name: run components unit tests
         run: |
           cd build
           cd bin
           cd Debug
-          .\Catch_tests_run.exe
+          .\ComponentsTests
+      - name: run queries unit tests
+        run: |
+          cd build
+          cd bin
+          cd Debug
+          .\QueriesTests
+      - name: run systems unit tests
+        run: |
+          cd build
+          cd bin
+          cd Debug
+          .\SystemsTests
+      - name: run systems vector2d tests
+        run: |
+          cd build
+          cd bin
+          cd Debug
+          .\Vector2DTests

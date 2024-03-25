@@ -71,7 +71,7 @@ TEST_CASE("RectangleConstructors", "RectangleTests")
 
     // arrange
     // act
-    const RectangleComponent rectangle_1{Vector2D{1.F, 2.F}, WHITE};
+    const RectangleComponent rectangle_1{Vector2D<float>{1.F, 2.F}, WHITE};
 
     // assert
     REQUIRE(rectangle_1.colour().r == WHITE.r);

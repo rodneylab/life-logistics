@@ -1,18 +1,19 @@
 #include "constants.h"
 #include "map.h"
-#include "queries.h"
+#include "queries.h" // NOLINT [misc-include-cleaner]
 #include "resources.h"
 #include "systems.h"
 
 #include <flecs/addons/cpp/flecs.hpp>
 #include <flecs/addons/cpp/world.hpp>
+//#include <spdlog/cfg/env.h>
+
 #include <raylib.h>
-#include <spdlog/cfg/env.h>
 
 int main()
 {
-    spdlog::cfg::
-        load_env_levels(); // use `export SPDLOG_LEVEL=trace` to set log level from command line
+    //  spdlog::cfg::
+    //    load_env_levels(); // use `export SPDLOG_LEVEL=trace` to set log level from command line
 
     InitWindow(constants::kWindowWidth,
                constants::kWindowHeight,

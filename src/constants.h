@@ -17,7 +17,7 @@ inline constexpr int kWindowHeight{450U};
 inline const std::string_view kWindowTitle{"Life Logistics"};
 
 inline constexpr int kTargetFramerate{240};
-inline const Vector2D kTileDimensions{16, 16};
+inline const Vector2D<int> kTileDimensions{16, 16};
 inline constexpr int kLevelWidth{64};
 inline constexpr int kLevelHeight{29};
 
