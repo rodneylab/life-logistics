@@ -6,14 +6,14 @@
 
 #include <flecs/addons/cpp/flecs.hpp>
 #include <flecs/addons/cpp/world.hpp>
-#include <spdlog/cfg/env.h>
+//#include <spdlog/cfg/env.h>
 
 #include <raylib.h>
 
 int main()
 {
-    spdlog::cfg::
-        load_env_levels(); // use `export SPDLOG_LEVEL=trace` to set log level from command line
+    //  spdlog::cfg::
+    //    load_env_levels(); // use `export SPDLOG_LEVEL=trace` to set log level from command line
 
     InitWindow(constants::kWindowWidth,
                constants::kWindowHeight,
