@@ -10,4 +10,3 @@ add_subdirectory(map)
 add_subdirectory(queries)
 add_subdirectory(systems)
 add_subdirectory(vector2d)
-
