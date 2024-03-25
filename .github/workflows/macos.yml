@@ -26,7 +26,19 @@ jobs:
       - name: building
         run: |
           cmake --build build --config Debug --target Catch_tests_run -j4
-      - name: run unit tests
+      - name: run component unit tests
         working-directory: ./build/bin
         run: |
-          ./Catch_tests_run
+          ./ComponentsTests
+      - name: run queries unit tests
+        working-directory: ./build/bin
+        run: |
+          ./QueriesTests
+      - name: run systems unit tests
+        working-directory: ./build/bin
+        run: |
+          ./SystemsTests
+      - name: run systems vector2d tests
+        working-directory: ./build/bin
+        run: |
+          ./Vector2DTests
