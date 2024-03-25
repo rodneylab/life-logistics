@@ -9,9 +9,21 @@
 #include <flecs/addons/cpp/entity.hpp>
 #include <flecs/addons/cpp/mixins/query/impl.hpp>
 #include <flecs/addons/cpp/world.hpp>
+
+// Windows workarounds for CloseWindow / ShowCursor errors
+
+#if defined(_WIN32)
+#define NOGDI  // All GDI defines and routines
+#define NOUSER // All USER defines and routines
+#endif
+
 #include <fmt/core.h>
-#include <raylib.h>
 #include <spdlog/spdlog.h>
+
+#undef near
+#undef far
+
+#include <raylib.h>
 
 #include <cmath>
 #include <string>
