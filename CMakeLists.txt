@@ -39,7 +39,12 @@ endif()
 include(Dependencies.cmake)
 life_logistics_setup_dependencies()
 
-add_executable(LifeLogistics src/main.cpp src/map.cpp src/systems.cpp src/templates.cpp)
+add_executable(
+    LifeLogistics
+    src/main.cpp
+    src/map.cpp
+    src/systems.cpp
+    src/templates.cpp)
 set_target_properties(LifeLogistics PROPERTIES CXX_CLANG_TIDY
                                                "${CLANG_TIDY_COMMAND}")
 target_link_libraries(
@@ -49,7 +54,7 @@ target_link_libraries(
             fmt
             raylib
             spdlog::spdlog_header_only
-    INTERFACE life_logistics_compiler_flags)
+            life_logistics_compiler_flags)
 
 target_include_directories(LifeLogistics PUBLIC "${PROJECT_BINARY_DIR}")
 
