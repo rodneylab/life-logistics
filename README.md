@@ -12,7 +12,7 @@ Clone the repo then run:
 ```shell
 cmake . -B build
 cmake --build build
-./build/bin/Arkanoid
+./build/bin/LifeLogistics
 ```
 
 In game, use the <kbd>W</kbd>, <kbd>A</kbd>, <kbd>S</kbd> & <kbd>D</kbd> keys to
