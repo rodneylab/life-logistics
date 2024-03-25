@@ -6,8 +6,6 @@
 #include "resources.h"
 #include "vector2d.h"
 
-#define SPDLOG_FMT_EXTERNAL
-
 #include <flecs/addons/cpp/entity.hpp>
 #include <flecs/addons/cpp/mixins/query/impl.hpp>
 #include <flecs/addons/cpp/world.hpp>
