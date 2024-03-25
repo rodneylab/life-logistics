@@ -6,6 +6,7 @@
  */
 
 #include <array>
+#include <ostream>
 
 template <typename T>
 class Vector2D
