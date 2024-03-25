@@ -26,7 +26,6 @@ target_compile_options(
         "$<${gcc_like_cxx}:$<BUILD_INTERFACE:-pedantic-errors;-Werror;-Wall;-Weffc++;-Wextra;-Wconversion;-Wsign-conversion>>"
         "$<${msvc_cxx}:$<BUILD_INTERFACE:-W4>>")
 
-
 if(NOT DEFINED EMSCRIPTEN)
     include(cmake/StaticAnalysers.cmake)
     enable_clang_tidy()
@@ -42,21 +41,21 @@ life_logistics_setup_dependencies()
 
 include(GenerateExportHeader)
 
-if(MSVC)
-    set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS TRUE)
-    set(BUILD_SHARED_LIBS TRUE)
-endif()
-
 add_library(Vector2D_lib STATIC "${PROJECT_SOURCE_DIR}/src/vector2d.cpp"
                                 "${PROJECT_SOURCE_DIR}/src/templates.cpp")
 set_target_properties(Vector2D_lib PROPERTIES CXX_CLANG_TIDY
                                               "${CLANG_TIDY_COMMAND}")
 target_link_libraries(Vector2D_lib life_logistics_compiler_flags)
-
-if(MSVC)
-    set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS FALSE)
-    set(BUILD_SHARED_LIBS FALSE)
-endif()
+generate_export_header(
+    Vector2D_lib
+    BASE_NAME
+    vector2d
+    EXPORT_MACRO_NAME
+    VECTOR2D_EXPORTS
+    EXPORT_FILE_NAME
+    vectro2d_exports.h
+    STATIC_DEFINE
+    SHARED_EXPORTS_BUILT_AS_STATIC)
 
 add_executable(LifeLogistics src/main.cpp src/map.cpp src/systems.cpp)
 set_target_properties(LifeLogistics PROPERTIES CXX_CLANG_TIDY

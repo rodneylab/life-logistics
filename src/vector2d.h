@@ -8,8 +8,45 @@
 #include <array>
 #include <ostream>
 
+#ifdef SHARED_EXPORTS_BUILT_AS_STATIC
+#define VECTOR2D_EXPORTS
+#define VECTOR2D_NO_EXPORT
+#else
+#ifndef VECTOR2D_EXPORTS
+#ifdef Vector2D_lib_EXPORTS
+/* We are building this library */
+#define VECTOR2D_EXPORTS
+#else
+/* We are using this library */
+#define VECTOR2D_EXPORTS
+#endif
+#endif
+
+#ifndef VECTOR2D_NO_EXPORT
+#define VECTOR2D_NO_EXPORT
+#endif
+#endif
+
+#ifndef VECTOR2D_DEPRECATED
+#define VECTOR2D_DEPRECATED __attribute__((__deprecated__))
+#endif
+
+#ifndef VECTOR2D_DEPRECATED_EXPORT
+#define VECTOR2D_DEPRECATED_EXPORT VECTOR2D_EXPORTS VECTOR2D_DEPRECATED
+#endif
+
+#ifndef VECTOR2D_DEPRECATED_NO_EXPORT
+#define VECTOR2D_DEPRECATED_NO_EXPORT VECTOR2D_NO_EXPORT VECTOR2D_DEPRECATED
+#endif
+
+#if 0 /* DEFINE_NO_DEPRECATED */
+#ifndef VECTOR2D_NO_DEPRECATED
+#define VECTOR2D_NO_DEPRECATED
+#endif
+#endif
+
 template <typename T>
-class Vector2D
+class VECTOR2D_EXPORTS Vector2D
 {
 public:
     Vector2D() = default;
