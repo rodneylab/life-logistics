@@ -39,6 +39,7 @@ endif()
 include(Dependencies.cmake)
 life_logistics_setup_dependencies()
 
+
 include(GenerateExportHeader)
 
 add_library(Vector2D_lib STATIC "${PROJECT_SOURCE_DIR}/src/vector2d.cpp"
@@ -53,9 +54,10 @@ generate_export_header(
     EXPORT_MACRO_NAME
     VECTOR2D_EXPORTS
     EXPORT_FILE_NAME
-    vectro2d_exports.h
+    vector2d_exports.h
     STATIC_DEFINE
     SHARED_EXPORTS_BUILT_AS_STATIC)
+target_compile_definitions(Vector2D_lib PRIVATE SPDLOG_FMT_EXTERNAL)
 
 add_executable(LifeLogistics src/main.cpp src/map.cpp src/systems.cpp)
 set_target_properties(LifeLogistics PROPERTIES CXX_CLANG_TIDY
@@ -72,6 +74,7 @@ target_link_libraries(
 target_include_directories(LifeLogistics PUBLIC "${PROJECT_BINARY_DIR}")
 target_compile_definitions(
     LifeLogistics PUBLIC ASSETS_PATH="${CMAKE_CURRENT_SOURCE_DIR}/assets/")
+target_compile_definitions(LifeLogistics PRIVATE SPDLOG_FMT_EXTERNAL)
 
 option(RUN_UNIT_TESTS "Run Catch2 unit tests" ON)
 if(RUN_UNIT_TESTS)

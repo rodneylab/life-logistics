@@ -13,6 +13,7 @@ target_link_libraries(
             raylib
             spdlog::spdlog_header_only
             life_logistics_compiler_flags)
+target_compile_definitions(QueriesTests PRIVATE SPDLOG_FMT_EXTERNAL)
 target_include_directories(QueriesTests PUBLIC "${PROJECT_SOURCE_DIR}/src")
 
 include(Catch)
