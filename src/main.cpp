@@ -6,8 +6,9 @@
 
 #include <flecs/addons/cpp/flecs.hpp>
 #include <flecs/addons/cpp/world.hpp>
-#include <raylib.h>
 #include <spdlog/cfg/env.h>
+
+#include <raylib.h>
 
 int main()
 {
