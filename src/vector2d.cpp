@@ -1,7 +1,7 @@
 #include "vector2d.h"
 
 /*! \file src/vector2d.cpp
- * \brief Defintions for lightweight two-dimensional vector class, using STD array for data storage.  Accepts template parameter for the data class.  Intended for use with small, basic types (bool, int, float double etc.).
+ * \brief Definitions for lightweight two-dimensional vector class, using STD array for data storage.  Accepts template parameter for the data class.  Intended for use with small, basic types (bool, int, float double etc.).
  */
 
 template <typename T>
