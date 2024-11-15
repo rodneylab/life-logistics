@@ -2,7 +2,7 @@
 #define SRC_VECTOR2D_H
 
 /*! \file src/vector2d.h
- * \brief Defintions for lightweight two-dimensional vector class, using STD array for data storage.  Accepts template parameter for the data class.  Intended for use with small, basic types (bool, int, float double etc.).
+ * \brief Definitions for lightweight two-dimensional vector class, using STD array for data storage.  Accepts template parameter for the data class.  Intended for use with small, basic types (bool, int, float double etc.).
  */
 
 #include <array>

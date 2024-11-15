@@ -186,7 +186,7 @@ struct Velocity
     }
 
     /**
-     * \brief Constructor initialising with separate x anf y values.
+     * \brief Constructor initialising with separate x and y values.
      *
      * \param[in] velocity_x   The `x`-direction velocity of the related entity.
      * \param[in] velocity_y   The `y`-direction velocity of the related entity.
