@@ -10,6 +10,8 @@
 
 #include <raylib.h>
 
+#include <string>
+
 int main()
 {
     //  spdlog::cfg::
