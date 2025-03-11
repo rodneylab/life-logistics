@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['map_27',['Map',['../classMap.html',1,'']]],
-  ['maptile_28',['MapTile',['../structMapTile.html',1,'']]]
+  ['map_0',['Map',['../classMap.html',1,'']]],
+  ['maptile_1',['MapTile',['../structMapTile.html',1,'']]]
 ];
