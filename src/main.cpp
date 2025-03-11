@@ -19,7 +19,7 @@ int main()
 
     InitWindow(constants::kWindowWidth,
                constants::kWindowHeight,
-               std::string(constants::kWindowTitle));
+               std::string(constants::kWindowTitle).data());
     InitAudioDevice();
 
     SetTargetFPS(constants::kTargetFramerate);
