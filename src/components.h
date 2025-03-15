@@ -7,6 +7,11 @@
 
 #include "vector2d.h"
 
+#include <fmt/format.h>
+
+#undef near
+#undef far
+
 #include <raylib.h>
 
 /**

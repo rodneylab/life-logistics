@@ -39,7 +39,6 @@ endif()
 include(Dependencies.cmake)
 life_logistics_setup_dependencies()
 
-
 include(GenerateExportHeader)
 
 add_library(Vector2D_lib STATIC "${PROJECT_SOURCE_DIR}/src/vector2d.cpp"
@@ -66,7 +65,7 @@ target_link_libraries(
     LifeLogistics
     PRIVATE dbg_macro
             flecs::flecs_static
-            fmt
+            fmt::fmt
             raylib
             spdlog::spdlog_header_only
             Vector2D_lib
